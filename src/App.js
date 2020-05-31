@@ -10,22 +10,19 @@ export default function App() {
   const [ops, setOps] = useState('');
   const numInput = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0, '.'];
   const modInput = ['Clear', 'AC'];
-  const opInput = ['+', '-', '*', '/', '='];
+  const opInput = ['/', '*', '-', '+', '='];
 
   return (
-    <div className='main'>
+    <div className='grid'>
       <div className='mem'>{mem}</div>
       <div className='input'>{input}</div>
-      <div className='num subgrid'>
-        {numInput.map((num, index) => {
-          return <NumBtns key={index} num={num} setInput={setInput} />;
-        })}
-      </div>
-      <div className='mod subgrid'>
+
+      <div className='mod'>
         {modInput.map((mod, index) => {
           return <ModBtns key={index} mod={mod} setInput={setInput} />;
         })}
       </div>
+
       <div className='ops subgrid'>
         {opInput.map((op, index) => {
           return (
@@ -40,6 +37,12 @@ export default function App() {
               currentOps={ops}
             />
           );
+        })}
+      </div>
+
+      <div className='num subgrid'>
+        {numInput.map((num, index) => {
+          return <NumBtns key={index} num={num} setInput={setInput} />;
         })}
       </div>
     </div>
